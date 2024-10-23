@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>إنشاء حساب</title>
+    <link href="signup.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="form">
+    <h1>سجل حسابك مجانًا</h1>
+    <form id="signupForm">
+        <div class="field-wrap">
+            <input type="text" id="firstName" placeholder="الاسم الأول" required autocomplete="off" />
+        </div>
+        <div class="field-wrap">
+            <input type="text" id="lastName" placeholder="الاسم الأخير" required autocomplete="off"/>
+        </div>
+        <div class="field-wrap">
+            <input type="email" id="email" placeholder="البريد الإلكتروني" required autocomplete="off"/>
+        </div>
+        <div class="field-wrap">
+            <input type="password" id="password" placeholder="إنشاء كلمة مرور" required autocomplete="off"/>
+        </div>
+        <div class="field-wrap">
+            <input type="password" id="confirmPassword" placeholder="تأكيد كلمة المرور" required autocomplete="off"/>
+        </div>
+        <button type="submit" class="button">سجل الآن</button>    
+    </form>
+</div>
+
+<footer>
+    <p>© 2024 جميع الحقوق محفوظة - مهاراتي</p> 
+</footer>
+
+<script>
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+        // منع الإرسال التلقائي للنموذج
+        event.preventDefault();
+
+        // الحصول على القيم من الحقول
+        var firstName = document.getElementById('firstName').value.trim();
+        var lastName = document.getElementById('lastName').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var password = document.getElementById('password').value.trim();
+        var confirmPassword = document.getElementById('confirmPassword').value.trim();
+
+        // التحقق من أن الحقول غير فارغة
+        if (!firstName || !lastName || !email || !password || !confirmPassword) {
+            alert("يرجى تعبئة جميع الحقول");
+            return;
+        }
+
+        // التحقق من تطابق كلمتي المرور
+        if (password !== confirmPassword) {
+            alert("كلمتا المرور غير متطابقتين");
+            return;
+        }
+
+        // التحقق من صحة البريد الإلكتروني
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            alert("يرجى إدخال بريد إلكتروني صحيح");
+            return;
+        }
+
+        // إذا كانت جميع الاختبارات صحيحة، يتم السماح بإرسال النموذج
+        alert("تم التسجيل بنجاح!");
+
+        // إعادة توجيه المستخدم إلى صفحة تسجيل الدخول
+        window.location.href = "login.html";  // قم بتغيير الرابط حسب الحاجة
+    });
+</script>
+
+</body>
+</html>
