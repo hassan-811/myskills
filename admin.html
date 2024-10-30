@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة الأدمن</title>
+    <!-- رابط Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="admin.css">
+    <style>
+        /* تنسيق خاص لحقل الإدخال والزر */
+        .input-group {
+            width: 200px; /* يمكنك تعديل العرض حسب الحاجة */
+        }
+        .input-group input {
+            min-width: 50px; /* ضبط الحد الأدنى للعرض */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <a href="#"><img src="logo.png" alt="Logo"></a>
+    </div>
+    <div class="logout">
+        <a href="#"><img src="account.png" alt="صورة المستخدم"></a>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <div class="row">
+            <!-- المربعات العلوية -->
+            <div class="col-md-3">
+                <div class="box">
+                    <img src="verified-user.png" alt="عدد المستخدمين">
+                    <h5>عدد المستخدمين</h5>
+                    <p>500</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="box">
+                    <img src="footage.png" alt="عدد الفديوهات">
+                    <h5>عدد الفديوهات</h5>
+                    <p>1500</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="box">
+                    <img src="content.png" alt="منشئ المحتوى">
+                    <h5>منشئو المحتوى</h5>
+                    <p>100</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="box">
+                    <img src="receptionist.png" alt="المسجلين الجدد">
+                    <h5>المسجلين الجدد</h5>
+                    <p>50</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- المربعات الوسطى في المنتصف -->
+        <div class="row justify-content-center mt-4">
+            <!-- زر حذف منشئ المحتوى -->
+            <div class="col-md-3">
+                <div class="box text-center">
+                    <img src="user.png" alt="حذف المحتوى">
+                    <h5>حذف منشئ المحتوى</h5>
+                    <div class="input-group mt-2">
+                        <input type="text" class="form-control" placeholder=" ID" aria-label="ID">
+                        <div class="input-group-append">
+                            <button class="btn btn-danger" onclick="deleteContentCreator()">حذف</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- زر حذف المستخدمين -->
+            <div class="col-md-3">
+                <div class="box text-center">
+                    <img src="user.png" alt="حذف المستخدمين">
+                    <h5>حذف المستخدمين</h5>
+                    <div class="input-group mt-2">
+                        <input type="text" class="form-control" placeholder=" ID" aria-label="ID">
+                        <div class="input-group-append">
+                            <button class="btn btn-danger" onclick="deleteUser()">حذف</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>© 2024 جميع الحقوق محفوظة - مهاراتي</p>
+</footer>
+
+<!-- Bootstrap CDN JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- وظائف الحذف -->
+<script>
+    function deleteContentCreator() {
+        // هنا يمكنك تنفيذ منطق حذف منشئ المحتوى
+        console.log("تم حذف منشئ المحتوى!"); // يمكنك استبدال هذا بالكود الفعلي للحذف
+    }
+
+    function deleteUser() {
+        // هنا يمكنك تنفيذ منطق حذف المستخدم
+        console.log("تم حذف المستخدم!"); // يمكنك استبدال هذا بالكود الفعلي للحذف
+    }
+</script>
+
+</body>
+</html>
