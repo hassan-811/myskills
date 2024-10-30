@@ -27,38 +27,5 @@
     </div>
 </div>
 
-<footer>
-    <p>© 2024 جميع الحقوق محفوظة - مهاراتي</p> 
-</footer>
-<script>
-    async function loginUser() {
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-
-        const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
-
-
-        const response = await fetch('/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, password }),
-        });
-
-        if (response.ok) {
-            alert('تم تسجيل الدخول بنجاح!');
-            window.location.href = 'viduo.html'; // إعادة التوجيه إلى صفحة الفيديو
-        } else {
-            alert('البريد الإلكتروني أو كلمة المرور غير صحيحة.');
-        }
-    }
-</script>
-
-
-
 </body>
 </html>
