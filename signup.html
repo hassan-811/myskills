@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب</title>
+    <link href="signup.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="form">
+    <h1>سجل حسابك مجانًا</h1>
+    <form id="signupForm" onsubmit="registerUser(event)">
+        <div class="field-wrap">
+            <input type="text" id="firstName" placeholder="الاسم الأول" required />
+        </div>
+        <div class="field-wrap">
+            <input type="text" id="lastName" placeholder="الاسم الأخير" required />
+        </div>
+        <div class="field-wrap">
+            <input type="email" id="email" placeholder="البريد الإلكتروني" required />
+        </div>
+        <div class="field-wrap">
+            <input type="password" id="password" placeholder="إنشاء كلمة مرور" required />
+        </div>
+        <div class="field-wrap">
+            <input type="password" id="confirmPassword" placeholder="تأكيد كلمة المرور" required />
+        </div>
+        <button type="submit" class="button">سجل الآن</button>
+    </form>
+</div>
+
+<footer>
+    <p>© 2024 جميع الحقوق محفوظة - مهاراتي</p> 
+</footer>
+
+<script>
+    async function registerUser(event) {
+        event.preventDefault(); // منع الإرسال الافتراضي
+        console.log('زر سجل الآن تم الضغط عليه'); // تحقق مما إذا كانت الدالة تُستدعى
+
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        // التحقق من تطابق كلمة المرور
+        if (password !== confirmPassword) {
+            alert('كلمة المرور وتأكيد كلمة المرور لا تتطابقان.');
+            return;
+        }
+
+        const response = await fetch('http://localhost:3000/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ firstName, lastName, email, password }),
+        });
+
+        if (response.ok) {
+            alert('تم تسجيل الحساب بنجاح!');
+            window.location.href = 'login.html'; // إعادة التوجيه إلى صفحة تسجيل الدخول
+        } else {
+            const errorData = await response.json();
+            alert(`حدث خطأ أثناء التسجيل: ${errorData.message || 'يرجى المحاولة لاحقًا.'}`);
+        }
+    }
+</script>
+
+</body>
+</html>
